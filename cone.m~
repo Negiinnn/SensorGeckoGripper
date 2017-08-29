@@ -37,10 +37,8 @@ scatter3(Fx,Fz,My);
 set(gca,'fontsize',16);
 
 figure 
-plot(Time,-calculatedTorque,Time,My)
-xlabel('[ms]');
-ylabel('[Nm])');
-title('Commanded vs. Measured Moment');
-legend('Commanded','Measured')
+plot(Time,calculatedTorque,Time,My)
+xlabel('Fx(N)');
+ylabel('Fz(N)');
 set(gca,'fontsize',16);
 

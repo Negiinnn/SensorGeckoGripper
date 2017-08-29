@@ -1,4 +1,9 @@
+% AstroPlotting.m
+% Getting some 
+
 clc; clear; close all; 
+
+
 
 [GoalCurrent,Current,velocityTicks,Position,Torque,Fx,Fz,Time] = importTxtData('Plots.txt');
 velocity = velocityTicks * .229 * 360 / 60; % rpm * 360/60 = [deg/sec]
