@@ -1,3 +1,7 @@
+% Aug 29 2017 
+% Negin and Matt looking at data from first experiments commanding a
+% "cone" contstraint 
+
 close all; clear; clc;
 
 %% Import Data 
@@ -33,9 +37,12 @@ ylabel('Fz(N)');
 zlabel('M(Nm)');
 title('Measured Moment');
 hold on; 
+armToMotor = .045;
+MyAdjusted = My + Fx.*armToMotor; 
 scatter3(Fx,Fz,My);
 set(gca,'fontsize',16);
 
+% Commanded vs. measured torque 
 figure 
 plot(Time,-calculatedTorque,Time,My)
 xlabel('[ms]');
@@ -43,4 +50,19 @@ ylabel('[Nm])');
 title('Commanded vs. Measured Moment');
 legend('Commanded','Measured')
 set(gca,'fontsize',16);
+
+% Commanded vs. measured torque 
+% NOT RELEVANT YET 
+figure 
+plot(current,My,'.',current,calculatedTorque,'.')
+xlabel('Commanded current [A?]');
+ylabel('Measured Moment [Nm]');
+set(gca,'fontsize',16);
+legend('Measured','Calculated')
+
+
+figure
+plot(Time,velocity.*counterclock)
+xlabel('[ms]');
+ylabel('[??])');
 
