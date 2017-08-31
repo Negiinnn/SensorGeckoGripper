@@ -33,7 +33,7 @@ set(gca,'fontsize',16);
 yyaxis right
 plot(tau_cur,tau_M,'o','Markersize',8)
 ylabel('Measured ATI Moment')
-Legend('Horizontal Force','Moment at ATI')
+legend('Horizontal Force','Moment at ATI')
 
 
 %%
