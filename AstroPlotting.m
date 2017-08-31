@@ -4,8 +4,11 @@
 clc; clear; close all; 
 
 
+filename = 'Plots.txt';
+filename = 'data/2017_08_30_StaticVerification/20.txt';
 
-[GoalCurrent,Current,velocityTicks,Position,Torque,Fx,Fz,Time] = importTxtData('Plots.txt');
+%[GoalCurrent,Current,velocityTicks,Position,Torque,Fx,Fz,Time] = importTxtData(filename);
+[GoalCurrent,Current,velocityTicks,Position,Torque,Fx,Fz,Time] = importData(filename);
 velocity = velocityTicks * .229 * 360 / 60; % rpm * 360/60 = [deg/sec]
 
 figure
