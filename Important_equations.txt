@@ -1,0 +1,19 @@
+Important parts/equations of Matlab code: 
+
+Given the ATI data (My,Fx,Fz) the value of the moment at the hinge of the motor can be calculated as: 
+
+arm= 0.05296;
+Madjusted= My-(Fx.*arm);
+
+Given the read current the value of the predicted torque from the motor can be found as: 
+
+test=(current)*P(1)-P(2)*sign(velocity);
+
+The choice of P(1) and P(2) can be either the one provided by the company or the one characterized 
+by us. They are both close in the company data and our model. More details about this can be found 
+in the motor characterization folder. 
+
+Based on the direction mode the motor is running at (counterclock-wise/ clockwise) the sign of current might be 
+reported differently from the motor. If the y axis of the motor is 180 degrees with respect to that of 
+ATI -P(1) and/or -P(2) should be used. To retain consistency align the y axis so that the data is always following 
+the same equation.  
