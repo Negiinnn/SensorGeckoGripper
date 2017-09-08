@@ -13,11 +13,12 @@
 
 close all; clear; clc; 
 
-filename = 'Trial1.txt';
+filename = 'Trial4.txt';
 coneFile = 'ConeV2.txt';
 
 [stoptorque,goal_current,current,velocity,position,Fx,Fy,Fz,Mx,My,Mz,counterclock,Time] = importTxtData3(filename);
 [Fx1,Fz1,M_max,M_min] = importCone(coneFile);
+
 
 %% Calculate the projected Moment at the motor from the current 
 arm= 0.05296;
@@ -64,20 +65,18 @@ xlabel('[ms]')
 title('Joint Position')
 set(gca,'fontsize',16);
 
-%% Plot 
+%% Current 
+Mcurrent=(current)*P(1)+P(2)*sign(velocity);
+Mgoal=(goal_current)*P(1)+P(2)*sign(velocity);
 
-
-plot(Time,Madjusted,'.');
-hold on
-test=(current)*P(1)+P(2)*sign(velocity);
-plot(Time,-test,'o');
-test2=(goal_current)*P(1)+P(2)*sign(velocity);
-plot(Time,-test2,'o');
+figure
+plot(Time,Madjusted,'-','LineWidth',3); hold on
+plot(Time,-Mcurrent,'-','LineWidth',1);
+plot(Time,-Mgoal,'o');
 xlabel('Time (ms)');
 ylabel('Nm ');
-legend('Madjusted','Currentbased','goal_current based');
+legend('Madjusted','Current based','goal current based');
 
-%%
  %% Plot the cone 
 figure
 scatter3(Fx1,Fz1,M_max);
@@ -87,9 +86,9 @@ xlabel('Fx(N)');
 ylabel('Fz(N)');
 zlabel('M(Nm)');
 title('Cone Generate through Visual Studio');
-scatter3(Fx,Fz,test2); %based on goal_current
+scatter3(Fx,Fz,Mgoal); %based on goal_current
 hold on 
-scatter3(Fx,Fz,test); %based on Smooth current 
+scatter3(Fx,Fz,Mcurrent); %based on Smooth current 
 hold on 
 scatter3(Fx,Fz,Madjusted);% based on M ATI 
 legend('cone','cone','goal_current','smooth current','M ATI');
