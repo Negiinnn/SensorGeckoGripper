@@ -76,9 +76,10 @@ legend('Madjusted','Current based','goal current based');
 
  %% Plot the cone 
 figure
-scatter3(Fx1,Fz1,M_max);
+safety=0.8;
+scatter3(Fx1,Fz1,safety*M_max);
 hold on
-scatter3(Fx1,Fz1,M_min);
+scatter3(Fx1,Fz1,safety*M_min);
 xlabel('Fx(N)');
 ylabel('Fz(N)');
 zlabel('M(Nm)');
