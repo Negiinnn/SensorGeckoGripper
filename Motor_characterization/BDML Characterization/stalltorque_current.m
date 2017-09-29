@@ -1,3 +1,5 @@
+
+
 figure; 
 hold on;
 Arm=0.056;
@@ -39,6 +41,19 @@ ylabel('Torque (Nm)')
 
 
 
+%% 
+figure
+subplot(2,1,1)
+plot(current)
+subplot(2,1,2)
+plot(Fx)
+t = 1:length(current)
+
+figure
+plot(t,current);
+hold on
+yyaxis right
+plot(t,-Fx)
 
 
 
