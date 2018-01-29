@@ -6,6 +6,7 @@
 <!-- one, you will receive a new calibration file with a different matrix.  Make     -->
 <!-- sure any custom software you write stays up to date with the latest version of  -->
 <!-- the calibration matrix.                                                         -->
+<FTSensor  Serial="FT22665" BodyStyle="Mini45" Family="DAQ" NumGages="6" CalFileVersion="1.1">
 	<Calibration  PartNumber="SI-145-5" CalDate="1/19/2018" ForceUnits="N" TorqueUnits="N-m" DistUnits="m" OutputMode="Ground Referenced Differential" OutputRange="20" HWTempComp="True" GainMultiplier="1" CableLossDetection="False" OutputBipolar="True">
 		<Axis Name="Fx" values=" -0.34553   0.13503   1.82616 -34.22927  -3.06430  33.26198 " max="145" scale="1.4229753385797"/>
 		<Axis Name="Fy" values=" -1.97955  38.91973   0.53499 -19.47561   1.85137 -19.76011 " max="145" scale="1.4229753385797"/>
